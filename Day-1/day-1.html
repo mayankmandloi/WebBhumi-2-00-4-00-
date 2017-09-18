@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="" ng-app="MyModule">
+        <div class="" ng-controller="myController">
+
+        <h1 ng-repeat="student in students">{{student.name}} <span style="font-size:15px;font-weight:400">{{student.number}}</span></h1>
+        </div>
+    </div>
+  </body>
+
+<script type="text/javascript">
+  var app = angular.module("MyModule",[]);
+  app.controller("myController",function ($scope) {
+    var s1 = [{name:"Arti",number:"01"},{name:"Rakhi",number:"02"},{name:"Avinash",number:"03"},{name:"Brijesh",number:"04"},{name:"Arti",number:"01"},{name:"Rakhi",number:"02"},{name:"Avinash",number:"03"},{name:"Brijesh",number:"04"}];
+
+    $scope.students=s1;
+  });
+</script>
+</html>

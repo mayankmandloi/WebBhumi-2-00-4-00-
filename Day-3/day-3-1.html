@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+    <script src="angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="" ng-app="myModule">
+      <div class="" ng-controller="myController1">
+        <p ng-repeat="person in persons">{{person.name}}
+        <input type="text" name="" value="" ng-model="person.name" ng-show="person.showMe">
+        <button ng-click="showhideme(person)" ng-show="person.showMe">Hide</button>
+
+        <button ng-click="showhideme(person)" ng-hide="person.showMe">Show</button>
+
+</p>
+      </div>
+    </div>
+  </body>
+
+
+  <script type="text/javascript">
+    var app = angular.module("myModule",[]);
+
+
+app.controller("myController1",function ($scope)
+    {
+        $scope.persons=[
+                          {name:"Rakhi",age:22 ,number:889358084},
+                          {name:"Brijesh",age:24 ,number:9744489135},
+                          {name:"Avinash",age:26 ,number:8463818107},
+                          {name:"Mayank",age:28 ,number:9425319399},
+                          {name:"Aruna",age:30 ,number:98989898998}];
+        $scope.showhideme=function (person) {
+          if(person.showMe==true){
+            person.showMe=false;
+            }
+          else {
+            person.showMe=true;
+          }
+        }
+    });
+
+
+
+
+
+
+app.controller("myController2",function ($scope) {
+  $scope.bande=[{name:"person1",age:22 ,number:889358084}, {name:"Person2",age:24 ,number:9744489135}, {name:"Person3",age:26 ,number:8463818107}, {name:"Person4",age:28 ,number:9425319399}, {name:"Person5",age:30 ,number:98989898998}];
+  })
+  </script>
+</html>

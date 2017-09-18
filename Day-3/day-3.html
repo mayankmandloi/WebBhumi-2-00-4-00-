@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+    <script src="angular.min.js" charset="utf-8"></script>
+    <style media="screen">
+      .badaSquare
+{
+  height: 400px;
+  background-color: rgba(255, 0, 0, 0.3);
+}
+    </style>
+  </head>
+  <body>
+    <div class="" ng-app="myModule" ng-controller="myController">
+      Brijesh:-<input type="radio" name="student" value="Brijesh" ng-model="student1">
+      Rakhi:-<input type="radio" name="student" value="Rakhi" ng-model="student1">
+      Avinash:-<input type="radio" name="student" value="Avinash" ng-model="student1">
+      Mayank:-<input type="radio" name="student" value="Mayank" ng-model="student1">
+
+
+      <div class="badaSquare" ng-show="brij()">Hello I am Brijesh</div>
+      <div class="badaSquare" ng-show="rakhi()">Hello I am Rakhee</div>
+      <div class="badaSquare" ng-show="avi()">Hello I am Avinash</div>
+      <div class="badaSquare" ng-show="mayank()">Hello I am Mayank</div>
+
+    </div>
+  </body>
+<script type="text/javascript">
+  var app = angular.module("myModule",[]);
+  app.controller("myController",function($scope) {
+    $scope.jadu="";
+    $scope.myFunction = function() {
+      //if ($scope.jadu=="gayab") {
+        if($scope.jadu.length>5){
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+    $scope.brij=function() {
+      if($scope.student1=="Brijesh")
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+    $scope.rakhi=function() {
+      if($scope.student1=="Rakhi")
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+    $scope.avi=function() {
+      if($scope.student1=="Avinash")
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+    $scope.mayank=function() {
+      if($scope.student1=="Mayank")
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+  })
+</script>
+</html>
