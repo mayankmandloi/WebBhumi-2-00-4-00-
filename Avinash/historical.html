@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>historical places</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/wow.js"></script>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    new WOW().init();
+  </script>
+    <style type="text/css">
+      .all{ height:400px;
+            overflow: auto;
+            margin-bottom: 10px;
+            border: solid 5px silver;
+
+            border-radius: 10%; }
+    </style>
+  </head>
+  <body >
+  <div class="container" >
+    <div class="" ng-app="myModule">
+      <div class="" ng-controller="myController1">
+      <div class="col-sm-4 all wow zoomInDown" ng-repeat="person in persons">
+         <h2> {{person.name}}</h2> <br>
+         <img src="{{person.image}}" class="img img-responsive" style="height:250px">
+
+       <div class="jumbotron">{{person.detail}}</div>
+        <button type="button" class="btn btn-primary"><span class="badge">Review:- {{person.Review}}</span></button>
+        <input type="text" name="" value="" ng-model="person.Review" ng-show="person.showMe">
+        <button ng-click="showhideme(person)" ng-show="person.showMe">ok</button>
+
+        <button ng-click="showhideme(person)" ng-hide="person.showMe">YOUR Review</button>
+</div>
+      </div>
+    </div>
+    </div>
+  </body>
+
+
+  <script type="text/javascript">
+    var app = angular.module("myModule",[]);
+
+
+app.controller("myController1",function ($scope)
+    {
+        $scope.persons=[
+                          {name:"Khajrana Ganesh Temple",distance:"100km",Review:"6" ,image:"../images/Khajrana-Ganesh-Temple.jpg",detail:"Khajrana Ganesh Temple is famous for housing the largest Ganapati statue in the world. The temple is built in the year 1875 during the reign of Rani Ahilya Bai Holkar."},
+                          {name:"Rajwada Palace",distance:"200km",Review:"6" ,image:"../images/rajwada.jpg",detail:"The historical palace of Rajwada in Indore city is a seven storied structure, built by the Holkars of the Maratha Empire. Rajwada Palace also known as Holkar Palace is one of the oldest structures and major historical site in Indore,located in the heart of the city close to the Chhatris."},
+                          {name:"Lal Baag Palace",distance:"300km",Review:"6" ,image:"../images/lal-baag-palace.jpg",detail:"Lal Bagh Palace is the finest building left by the Holkar dynasty,was once the resident of the Holkars. Lal Baag Palace is one of the most spectacular buildings in Indore,on the bank of the River Khan."},
+                          {name:"Patalpani Waterfall",distance:"400km",Review:"6" ,image:"../images/Patalpani-Waterfall.jpg",detail:"Patalpani Waterfall is a beautiful waterfall near Indore and one of the most famous picnic spot. The fall is approximately 300 feet high, situated 35kms south-west of Indore city on the Indore-Khandwa route."},
+                          {name:"Krishnapura Chhatri",distance:"500km",Review:"6" ,image:"../images/Indore-krishna-Chatri.jpg",detail:"Krishnapura Chhatris is one of the most architecturally significant structures in Indore and a major tourist attraction. Chhatris or cenotaphs of Indore are the royal tombs of the erstwhile rulers of the Holker dynasty with many beautiful carvings and sculptures."},
+                          {name:"Omkareshwar Mahadev, Omkareshwar",distance:"600km",Review:"6" ,image:"../images/Omkareshwar-Narmada-river.jpg",detail:"Omkareshwar Mahadev Temple is dedicated to God Shiva and one of the 12 revered Jyotirlinga shrines of Shiva. Omkareshwar Jyotirlinga is situated in the Khandwa district of Madhya Pradesh on an island called Mandhata in the Narmada river."},
+                          {name:"Bahadur Mahal, Mandu",distance:"700km",Review:"6" ,image:"../images/Mandu-Fort.jpg",detail:"The ruined city of Mandu is located in the Malwa region of Madhya Pradesh, about 100 km from Indore. Mandu is known for its fine architecture of Jahaz Mahal,Alamgir Darwaza,Hindola Mahal,Hoshang Shah Mausoleum and Roopmati’s Pavilion."},
+                          {name:"Tekri Mata Mandir, Dewas",distance:"800km",Review:"6" ,image:"../images/Dewas-Tekri-Temple.jpg",detail:"Tekri is a conical hill in Dewas city commonly known as Tekri Mandir, located 36 km from Indore on AB Road, Agra-Mumbai National Highway 3. The great temple of Dewas is dedicated to the Goddess Chamunda Mata and Tulja Bhavani Mata."},
+                          {name:"Ahilya Fort, Maheshwar",distance:"900km",Review:"6" ,image:"../images/Maheswar-Narmada-Ghat.jpg",detail:"The glorious city of Maheshwar 91 km from Indore on the north bank of the Narmada River. Maheshwar has been a centre of handloom weaving and also known for its Ghats on the banks of river Narmada,Ahilya Fort,Chhatri of Vithoji and Ek Mukhi Datta Temple."},
+                          {name:"Ralamandal Wildlife Sanctuary",distance:"1000km",Review:"6" ,image:"../images/Ralamandal-Wildlife-Sanctuary.jpg",detail:"Ralamandal Wildlife Sanctuary is situated 20 km from the city and home to various species of exquisite bird and wild life. The sanctuary has a rich wildlife culture and its own conservation of flora and fauna."}];
+        $scope.showhideme=function (person) {
+          if(person.showMe==true){
+            person.showMe=false;
+            }
+          else {
+            person.showMe=true;
+          }
+        }
+    });
+  </script>
+</html>
