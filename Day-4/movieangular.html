@@ -1,4 +1,55 @@
-var movies=[
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movies</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/wow.js"></script>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+    <script src="../js/movies1.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    new WOW().init();
+  </script>
+    <style type="text/css">
+      .all{ height:400px;
+            overflow: auto;
+            margin-bottom: 10px;
+            background-color: cyan;
+            border: solid 5px silver;
+
+            border-radius: 10%; }
+    </style>
+  </head>
+  <body >
+  <div class="container" >
+    <div class="" ng-app="myModule">
+      <div class="" ng-controller="myController1">
+        <input type="text" name="" value="" ng-model="searchText" style="background-color: pink">
+
+      <div class="row">
+      <div class="col-sm-4 all wow zoomInDown" ng-repeat="movie in movies | filter:toSearchHeading">
+         <h2> {{movie.Title}}</h2> <br>
+         <img src="{{movie.PosterPath}}" class="img img-responsive" style="height:250px">
+
+       <div class="jumbotron"> Description :- {{movie.Description}}</div>
+ </div>
+</div>
+      </div>
+    </div>
+    </div>
+  </body>
+
+
+  <script type="text/javascript">
+    var app = angular.module("myModule",[]);
+
+
+app.controller("myController1",function ($scope)
+    {
+       $scope.movies=[
 
 
   {"Id":"1518c695","ImdbId":"tt6017906","OriginalTitle":"Captain Nawab","Title":"Captain Nawab","Description":"Captain Nawab is an upcoming 2017 hindi film. A double spy (working for both INDIA AND PAKISTAN) gets in trouble, when both sides comes to know of his betrayal.","TrailerLink":"","TrailerEmbedCode":"","Country":"IN","Region":"BOLLYWOOD","Genre":"Action","RatingCount":1,"Rating":0.0,"TotalCriticReviews":0,"CensorRating":"","ReleaseDate":"11/11/2016","ReleaseDateAvailable":1,"ReleaseYear":2016,"Runtime":0,"Budget":0,"Revenue":0,"PosterPath":"http://images.cinemalytics.com/movie/61C43E36F59BC08D76230239342DA3E3.jpg","PosterReleased":1,"LastUpdateTime":"11/23/2016 10:39:08 PM"},
@@ -644,3 +695,24 @@ var movies=[
 
 
   {"Id":"99779888","ImdbId":"tt3043252","OriginalTitle":"Parched","Title":"Parched","Description":"'Parched' is a story about women set in the heart of parched rural landscape of Gujarat, India. It traces the bittersweet tale of four ordinary women Rani, Lajjo, Bijli and Janaki. We see them unapologetically talk about men, sex and life as they struggle with their individual boundaries to face their demons and stage their own personal wars.","TrailerLink":"https://www.youtube.com/watch?v=m69d-KNi2Q0","TrailerEmbedCode":"<iframe width=\"850\" height=\"450\" src=\"https://www.youtube.com/embed/m69d-KNi2Q0\" frameborder=\"0\" allowfullscreen></iframe>","Country":"IN","Region":"BOLLYWOOD","Genre":"Drama","RatingCount":2,"Rating":3.25,"TotalCriticReviews":7,"CensorRating":"A","ReleaseDate":"9/23/2016","ReleaseDateAvailable":1,"ReleaseYear":2016,"Runtime":116,"Budget":0,"Revenue":0,"PosterPath":"http://images.cinemalytics.com/movie/09CDA564E3001890CEC7E65A93ACC09F.jpg","PosterReleased":1,"LastUpdateTime":"9/13/2016 11:45:27 AM"}];
+
+        $scope.showhideme=function (movie) {
+          if(movie.showMe==true){
+            movie.showMe=false;
+            }
+          else {
+            movie.showMe=true;
+          }
+        }
+        $scope.searchText="";
+        $scope.toSearchHeading=function (item) {
+           if(item.Title.indexOf($scope.searchText)>-1){
+           return true;
+            }
+            else {
+              return false;
+            }
+        }
+    });
+  </script>
+</html>
