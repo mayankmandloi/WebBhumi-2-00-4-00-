@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>electricty angular</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <script type="text/javascript" src="../js/angular.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/Electricty.js"></script>
+
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped" ng-app="myModule" ng-controller="myController">
+        <thead>
+
+        </thead>
+        <tbody>
+          <tr ng-repeat="plant in plants">
+            <td ng-repeat="detail in plant">
+              {{detail}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+  var app=angular.module("myModule",[]);
+  app.controller("myController" ,function($scope)
+  {
+    $scope.plants=electricty.data;
+  })
+</script>
+</html>
