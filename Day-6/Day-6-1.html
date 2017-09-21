@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Bhumi</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style media="screen">
+      th{
+        cursor: pointer;
+      }
+    </style>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container" ng-app="myModule">
+      <div class="row">
+        <table class="table table-inverse" ng-controller="myController">
+          <thead>
+            <tr>
+              <th ng-click="sortByMe('name')">Name</th>
+              <th ng-click="sortByMe('html')">HTML</th>
+              <th ng-click="sortByMe('css')">CSS</th>
+              <th ng-click="sortByMe('js')">JS</th>
+              <th ng-click="sortByMe('angular')">NG</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="student in StudentsRating|orderBy:byMe">
+              <td>{{student.name}}</td>
+              <td>{{student.html}}</td>
+              <td>{{student.css}}</td>
+              <td>{{student.js}}</td>
+              <td>{{student.angular}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+    var app=angular.module("myModule",[]);
+    app.controller("myController",function ($scope) {
+      $scope.StudentsRating=[{name:"Rakhee",html:7,css:9,js:5,angular:8},{name:"Avinash",html:8,css:8,js:6,angular:8},{name:"Shivam",html:8,css:6,js:9,angular:3},{name:"Brijesh",html:9,css:10,js:8,angular:3}];
+      $scope.sortByMe=function(inputValue)
+        {
+          if($scope.byMe==inputValue)
+            {
+              $scope.byMe="-"+inputValue;
+            }
+            else {
+                $scope.byMe=inputValue;
+            }
+        }
+    })
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
