@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Bhumi</title>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+    <style media="screen">
+      .thoraBada>li{
+        padding: 40px;
+        border: 1px solid grey;
+        box-shadow: 4px 4px 4px #4c4c4c;
+        list-style-position:inside;
+        width: 30%;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="" ng-app="myModule">
+    <div class="" ng-controller="myController">
+      <ol class="thoraBada">
+        <li ng-repeat="bachha in BachheLog|orderBy:'number'">{{bachha.name}} Roll No is :- {{bachha.number}}</li>
+      </ol>
+    </div>
+  </div>
+
+  </body>
+
+  <script type="text/javascript">
+    var app = angular.module("myModule",[]);
+    app.controller("myController",function ($scope) {
+      $scope.BachheLog = [{name:"Shivam",number:"a110"},{name:"Brijesh",number:"b12"},{name:"Rakhee",number:"a3"},{name:"Avinash",number:"b14"}];
+    })
+  </script>
+</html>
