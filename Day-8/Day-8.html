@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Bhumi</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style media="screen">
+      th{
+        cursor: pointer;
+      }
+    </style>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container" ng-app="myModule">
+      <div class="row">
+        <table class="table table-inverse" ng-controller="myController">
+          <thead>
+            <tr>
+              <th ng-click="sortByMe('name')">Name</th>
+              <th ng-click="sortByMe('html')">HTML</th>
+              <th ng-click="sortByMe('css')">CSS</th>
+              <th ng-click="sortByMe('js')">JS</th>
+              <th ng-click="sortByMe('angular')">NG</th>
+              <th ng-click="sortByMe('budget')">Budget</th>
+              <th>Birth Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="student in StudentsRating|orderBy:byMe|limitTo:200">
+              <td>{{student.name|lowercase}}</td>
+              <td>{{student.html}}</td>
+              <td>{{student.css}}</td>
+              <td>{{student.js}}</td>
+              <td>{{student.angular}}</td>
+              <td ng-click="showBudget(student)">{{student.budget|hidePaise:student.paise}}</td>
+              <td>{{student.bday|date:'EEEE'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+<script src="day-8.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
