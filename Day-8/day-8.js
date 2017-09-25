@@ -23,6 +23,9 @@ $scope.showBudget=function (student) {
     {
       student.paise=true;
     }
+  else {
+    student.paise=false;
+  }
 
 }
 });
