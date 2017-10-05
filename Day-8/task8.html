@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day-8 task</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style media="screen">
+      th{
+        cursor: pointer;
+      }
+    </style>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="task8.js"></script>
+  </head>
+  <body>
+    <div class="container" ng-app="myModule">
+      <div class="row">
+        <table class="table table-inverse" ng-controller="myController">
+          <thead>
+            <tr>
+              <th ng-click="sortByMe('Name')">Name</th>
+              <th ng-click="sortByMe('Match')">Match</th>
+              <th ng-click="sortByMe('Runs')">Runs</th>
+              <th ng-click="sortByMe('Highest')">Highest</th>
+              <th ng-click="sortByMe('hun')">100,s</th>
+              <th ng-click="sortByMe('fif')">50,s</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="player in players|orderBy:byMe|limitTo:200">
+              <td>{{player.Name}}</td>
+              <td>{{player.Match}}</td>
+              <td>{{player.Runs}}</td>
+              <td>{{player.Highest}}</td>
+              <td>{{player.hun}}</td>
+              <td ng-click="showBudget(player)">{{player.fif|hidePaise:player.fif}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
