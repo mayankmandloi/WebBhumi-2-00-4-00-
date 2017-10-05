@@ -19,10 +19,10 @@
   <body>
 <div class="" ng-app="personNameApp">
   <div class="" ng-controller="batch1Controller as b1">
-    <table class="box" ng-repeat="person in b1.Details">
+    <table class="box" ng-repeat="person in b1.Details|orderBy:'-Match'">
     <thead>
     <tr>
-     <td>Name</td> 
+     <td>Name</td>
      <td>Match</td>
      <td>Runs</td>
      <td>Highest</td>
