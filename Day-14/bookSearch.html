@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class=" col-md-offset-1 col-sm-10" ng-repeat="book in Books|filter:searchId" style="text-align: center;">
+      <h1>{{book.Title}}</h1>
+      <img ng-src="{{book.Image}}" alt="">
+      <p>{{book.Description}}</p>
+      <a href="#!/books"><button>Back</button></a>
+      <a href="#!/book/edit/{{book.ID}}"><button>Edit</button></a>
+    </div>
+  </div>
+</div>

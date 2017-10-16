@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="book in Books|filter:searchId">
+      <h1><a href="#!/book/{{book.ID}}">{{book.Title}}</a></h1>
+      <img ng-src="{{book.Image}}" alt="">
+      <p>{{book.Description}}</p>
+    </div>
+  </div>
+</div>
